@@ -9,7 +9,9 @@ requester.on('message', data => {
 
 requester.connect('tcp://127.0.0.1:41234');
 
-console.log('Sending request for ' + filename);
-requester.send(JSON.stringify({
-  path: filename
-}));
+for (let i = 0; i < 5; i++) {
+  console.log('Sending request ' + i + ' for ' + filename);
+  requester.send(JSON.stringify({
+    path: filename
+  }));
+}
